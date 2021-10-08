@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.java.cursomc.domain.Categoria;
 import com.java.cursomc.dto.CategoriaDTO;
@@ -53,7 +54,10 @@ public class CategoriaService {
 		return repo.findAll();
 	}
 	
-	public Page<Categoria> findPage(Integer page, Integer linesPerPage, String orderBy, String direction){
+	public Page<Categoria> findPage(@RequestParam(value="page", defaultValue="0") Integer page, 
+			@RequestParam(value="linesPerPage", defaultValue="24") Integer linesPerPage, 
+			@RequestParam(value="orderBy", defaultValue="nome") String orderBy, 
+			@RequestParam(value="direction", defaultValue="ASC") String direction){
 		
 		PageRequest pageRequest = PageRequest.of(page, linesPerPage, Direction.valueOf(direction), orderBy);
 		
