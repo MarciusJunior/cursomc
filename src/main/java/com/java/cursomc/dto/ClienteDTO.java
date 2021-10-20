@@ -2,9 +2,10 @@ package com.java.cursomc.dto;
 
 import java.io.Serializable;
 
-import org.hibernate.validator.constraints.Email;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import com.java.cursomc.domain.Cliente;
 import com.java.cursomc.services.validation.ClienteUpdate;
